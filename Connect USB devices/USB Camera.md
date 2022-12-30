@@ -75,6 +75,7 @@ Device Drivers->Network device support->USB Network Adapters->Multi-purpose USB 
 These are additional features required for the camera.
 Device Drivers->Multimedia support[M]
 Device Drivers->Multimedia support[M]->Filter media drivers[*]
+Device Drivers->Multimedia support[M]->Auto ancillary drivers[*]
 Device Drivers->Multimedia support[M]->Media device types->Camera and video grabbers[*]
 Device Drivers->Multimedia support[M]->Video4Linux options->V4L2 sub-device userspace API[*]
 Device Drivers->Multimedia support[M]->Media drivers->Media USB Adapters[*]
@@ -120,8 +121,82 @@ cp arch/x86/boot/bzImage /mnt/c/Users/<user>/usbip-bzImage
 
 Create a ```.wslconfig``` file on ```/mnt/c/Users/<user>/``` and add a reference to the created image with the following.
 
-```sh
+```pwsh
 [wsl2]
 kernel=c:\\users\\<user>\\usbip-bzImage
 ```
 
+From an administrator command prompt on Windows, run this command. It will list all the USB devices connected to Windows.
+
+```pwsh
+> usbipd wsl list
+BUSID  VID:PID    DEVICE                                                        STATE
+2-4    04d9:a115  USB Input Device                                              Not attached
+2-5    5986:212b  Integrated Camera                                             Not attached
+```
+
+Select the bus ID of the device you’d like to attach to WSL and run this command. You’ll be prompted by WSL for a password to run a sudo command.
+
+```pwsh
+> usbipd wsl attach --busid 2-5
+[sudo] password for user:
+```
+
+From an administrator bash on Linux, run this command.
+
+```sh
+sudo usbip list --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+sudo usbip attach --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}') --busid=2-5 
+```
+
+At this moment, it can be found that it has appeared and can be tested with ```/dev/video0```
+
+```sh
+sudo apt install v4l-utils ffmpeg
+```
+
+```sh
+Examine device access.
+ v4l2-ctl --list-devices
+```
+
+```sh
+Allow access by using
+sudo chmod 777 /dev/video0
+```
+
+```sh
+ffplay -f video4linux2 -input_format mjpeg -framerate 30 -video_size 640*480 /dev/video0
+```
+
+Or you can also use OpenCV for testing.
+
+```py
+# import the opencv library
+import cv2
+
+
+# define a video capture object
+camera = cv2.VideoCapture(0)
+camera.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
+
+while(True):
+	
+	# Capture the video frame
+	# by frame
+	ret, frame = camera.read()
+
+	# Display the resulting frame
+	cv2.imshow('frame', frame)
+	
+	# the 'q' button is set as the
+	# quitting button you may use any
+	# desired button of your choice
+	if cv2.waitKey(1) & 0xFF == ord('q'):
+		break
+
+# After the loop release the cap object
+camera.release()
+# Destroy all the windows
+cv2.destroyAllWindows()
+```
