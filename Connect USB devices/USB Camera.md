@@ -146,7 +146,7 @@ From an administrator bash on Linux, run this command.
 
 ```sh
 sudo usbip list --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
-sudo usbip attach --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}') --busid=2-5 
+sudo usbip attach --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}') --busid=2-5
 ```
 
 At this moment, it can be found that it has appeared and can be tested with ```/dev/video0```
@@ -157,7 +157,7 @@ sudo apt install v4l-utils ffmpeg
 
 ```sh
 Examine device access.
- v4l2-ctl --list-devices
+v4l2-ctl --list-devices
 ```
 
 ```sh
@@ -241,3 +241,20 @@ int main()
 ```sh
 g++ camera.cpp -o camera `pkg-config --cflags --libs opencv4`
 ```
+
+If you plan to use it frequently, you can create an alias for executing .sh file.
+
+```sh
+sudo usbip list --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+sudo usbip attach --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}') --busid=2-5
+```
+
+Copy and paste the following command to your shell’s profile (.profile, .bashrc, .zprofile, etc.).
+
+```sh
+sudo usbip list --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+sudo usbip attach --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}') --busid=2-5
+sudo chmod 777 /dev/video0
+```
+
+Refresh the configuration by restarting the terminal session or by running source [path to profile], for example, source ~/.bashrc.
