@@ -242,19 +242,18 @@ int main()
 g++ camera.cpp -o camera `pkg-config --cflags --libs opencv4`
 ```
 
-If you plan to use it frequently, you can create an alias for executing .sh file.
-
-```sh
-sudo usbip list --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
-sudo usbip attach --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}') --busid=2-5
-```
-
-Copy and paste the following command to your shell’s profile (.profile, .bashrc, .zprofile, etc.).
+If you plan to use it frequently, you can create an alias for executing export.sh file.
 
 ```sh
 sudo usbip list --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
 sudo usbip attach --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}') --busid=2-5
 sudo chmod 777 /dev/video0
+```
+
+Copy and paste the following command to your shell’s profile (.profile, .bashrc, .zprofile, etc.).
+
+```sh
+alias get_webcam='. $HOME/webcam/export.sh'
 ```
 
 Refresh the configuration by restarting the terminal session or by running source [path to profile], for example, source ~/.bashrc.
