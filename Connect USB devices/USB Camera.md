@@ -19,7 +19,8 @@ sudo apt install dwarves
 Clone kernel that matches wsl version. To find the version you can run.
 
 ```sh
-uname -r
+> uname -r
+5.15.79.1-microsoft-standard-WSL2+
 ```
 
 The kernel can be found at: https://github.com/microsoft/WSL2-Linux-Kernel
@@ -29,7 +30,7 @@ Clone the kernel repo, then checkout the branch/tag that matches your kernel ver
 ```sh
 git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
 cd WSL2-Linux-Kernel
-git checkout linux-msft-wsl-5.10.43.3
+git checkout linux-msft-wsl-5.15.79.1
 ```
 
 Copy current configuration file.
