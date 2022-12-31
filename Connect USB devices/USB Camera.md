@@ -177,7 +177,7 @@ import cv2
 
 
 # define a video capture object
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(0, cv2.CAP_V4L2)
 camera.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
 
 while(True):
