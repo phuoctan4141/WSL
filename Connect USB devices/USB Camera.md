@@ -257,4 +257,4 @@ Copy and paste the following command to your shell’s profile (.profile, .bashr
 alias get_webcam='. $HOME/webcam/export.sh'
 ```
 
-Refresh the configuration by restarting the terminal session or by running source [path to profile], for example, source ~/.bashrc.
+Refresh the configuration by restarting the terminal session or by running source [path to profile], for example, ```source ~/.bashrc```.
