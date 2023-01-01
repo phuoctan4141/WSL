@@ -250,7 +250,6 @@ If you plan to use it frequently, you can create an alias for executing export.s
 ```sh
 sudo usbip list --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
 sudo usbip attach --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}') --busid=2-5
-sudo chmod 777 /dev/video0
 ```
 
 Copy and paste the following command to your shell’s profile (.profile, .bashrc, .zprofile, etc.).
