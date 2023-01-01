@@ -127,6 +127,8 @@ Create a ```.wslconfig``` file on ```/mnt/c/Users/<user>/``` and add a reference
 kernel=c:\\users\\<user>\\usbip-bzImage
 ```
 
+⚠️ Reset your WSL distro.
+
 From an administrator command prompt on Windows, run this command. It will list all the USB devices connected to Windows.
 
 ```pwsh
