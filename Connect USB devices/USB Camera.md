@@ -161,6 +161,9 @@ sudo apt install v4l-utils ffmpeg
 ```sh
 Examine device access.
 v4l2-ctl --list-devices
+Show webcamera information
+v4l2-ctl -d /dev/video0 --all
+v4l2-ctl -d /dev/video2 --list-formats-ext
 ```
 
 ```sh
