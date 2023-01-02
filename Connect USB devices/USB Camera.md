@@ -262,3 +262,5 @@ alias get_webcam='. $HOME/webcam/export.sh'
 ```
 
 Refresh the configuration by restarting the terminal session or by running source [path to profile], for example, ```source ~/.bashrc```.
+
+problems -> [https://github.com/microsoft/WSL/issues/8655]
