@@ -111,7 +111,7 @@ sudo cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
 Install usb.ids so you have names displayed for usb devices.
 
 ```sh
-sudo apt-get install hwdata
+sudo apt install linux-tools-virtual hwdata
 ```
 
 From the root of the repo, copy the image.
