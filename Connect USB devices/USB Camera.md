@@ -16,6 +16,8 @@ sudo apt install build-essential flex bison libssl-dev libelf-dev libncurses-dev
 sudo apt install dwarves
 ```
 
+Windows USB IP drivers: https://github.com/dorssel/usbipd-win/wiki/WSL-support
+
 Clone kernel that matches wsl version. To find the version you can run.
 
 ```sh
@@ -129,7 +131,7 @@ kernel=c:\\users\\<user>\\usbip-bzImage
 
 ⚠️ Reset your WSL distro.
 
-From an administrator command prompt on Windows, run this command. It will list all the USB devices connected to Windows.
+From an administrator Powershell on Windows, run this command. It will list all the USB devices connected to Windows.
 
 ```pwsh
 > usbipd wsl list
