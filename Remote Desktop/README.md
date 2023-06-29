@@ -1,6 +1,6 @@
 # Remote Desktop
 
-## Initall
+## Initall xfce4 and xrdp
 
 `sudo apt install xfce4 -y`
 
