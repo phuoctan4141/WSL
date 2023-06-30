@@ -11,3 +11,7 @@
 ## Test OpenGL
 
 `vblank_mode=0/1 glxgears` disable/enable Vsync
+
+## D3D12 GPU Video acceleration
+
+[D3D12 GPU Video acceleration](https://devblogs.microsoft.com/commandline/d3d12-gpu-video-acceleration-in-the-windows-subsystem-for-linux-now-available/)
