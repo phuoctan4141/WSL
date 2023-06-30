@@ -19,3 +19,5 @@ sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-focal.list http://packages.l
 sudo apt update
 sudo apt install vulkan-sdk
 ```
+
+[Linux Tarball Vulkan SDK](https://vulkan.lunarg.com/doc/sdk/1.3.250.1/linux/getting_started.html)
