@@ -2,7 +2,7 @@
 
 ## Install OpenGL
 
-`sudo apt install mesa-utils libglu1-mesa-dev freeglut3-dev mesa-common-dev`
+`sudo apt install mesa-utils libglu1-mesa-dev freeglut3-dev mesa-common-dev libsdl2-dev libdbus-1-dev`
 
 ## Check OpenGL Version
 
