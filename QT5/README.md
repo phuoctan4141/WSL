@@ -6,7 +6,7 @@
 
 `sudo apt-get install qtbase5-examples qtbase5-doc-html`
 
-`sudo apt-get install qtmultimedia5-dev libqt5multimedia5-plugins qml-module-qtmultimedia`
+`sudo apt-get install build-dep qtmultimedia5-dev libqt5multimedia5-plugins qml-module-qtmultimedia`
 
 ## Error: Unknown module(s) in QT: qml quick
 
