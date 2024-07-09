@@ -9,7 +9,7 @@ sudo apt update && sudo apt upgrade
 Install prerequisites.
 
 ```sh
-sudo apt install build-essential flex bison libssl-dev libelf-dev libncurses-dev autoconf libudev-dev libtool
+sudo apt install build-essential flex bison libssl-dev libelf-dev libncurses-dev autoconf libudev-dev libtool bc
 ```
 
 ```sh
