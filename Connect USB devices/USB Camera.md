@@ -134,20 +134,21 @@ kernel=c:\\users\\<user>\\usbip-bzImage
 From an administrator Powershell on Windows, run this command. It will list all the USB devices connected to Windows.
 
 ```pwsh
-> usbipd wsl list
+> usbipd list
 BUSID  VID:PID    DEVICE                                                        STATE
 2-4    04d9:a115  USB Input Device                                              Not attached
 2-5    5986:212b  Integrated Camera                                             Not attached
 ```
 
-Select the bus ID of the device you’d like to attach to WSL and run this command. You’ll be prompted by WSL for a password to run a sudo command.
+Select the bus ID of the device you’d like to attach to WSL and run this command.
 
 ```pwsh
-> usbipd wsl attach --busid 2-5
-[sudo] password for user:
+> usbipd bind --busid 2-5
+> usbipd attach --wsl --busid
+// [sudo] password for user:
 ```
 
-From an administrator bash on Linux, run this command.
+From an administrator bash on Linux, run this command (This command does not execute the most recent version of WSL).
 
 ```sh
 sudo usbip list --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
