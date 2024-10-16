@@ -144,7 +144,7 @@ Select the bus ID of the device you’d like to attach to WSL and run this comma
 
 ```pwsh
 > usbipd bind --busid 2-5
-> usbipd attach --wsl --busid
+> usbipd attach --wsl --busid 2-5
 // [sudo] password for user:
 ```
 
@@ -251,7 +251,7 @@ int main()
 g++ camera.cpp -o camera `pkg-config --cflags --libs opencv4`
 ```
 
-If you plan to use it frequently, you can create an alias for executing export.sh file.
+If you plan to use it frequently, you can create an alias for executing export.sh file. (This command does not execute the most recent version of WSL)
 
 ```sh
 sudo usbip list --remote=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
